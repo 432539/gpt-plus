@@ -2,7 +2,7 @@
 
 开源地址：[github.com/432539/gpt-plus](https://github.com/432539/gpt-plus)。交流：QQ 群 **1109037692**。
 
-本文只记录**字段名、含义、默认值/占位符**。不要把真实密码、API Key、License、JWT/AES、代理账号、邮箱明文、`.env` 实际值、数据库或用户数据提交到仓库。
+本文说明 GPT-Plus 注册机与控制台的配置字段，只记录**字段名、含义、默认值/占位符**。不要把真实密码、API Key、License、JWT/AES、代理账号、邮箱明文、`.env` 实际值、数据库或用户数据提交到仓库。
 
 本地复制模板：`cp .env.example .env`，再改密钥。运行时设置保存在加密后的 `user_settings`（SQLite），API 对密钥只回传 `*_configured`，不回显明文。
 
