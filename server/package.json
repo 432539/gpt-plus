@@ -1,0 +1,34 @@
+{
+  "name": "gpt-plus-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "node --watch src/app.js",
+    "start": "node src/app.js",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/app.js && node --check src/db.js && node --check src/routes/accounts.js && node --check src/routes/logs.js && node --check src/routes/settings.js && node --check src/routes/proxies.js && node --check src/routes/domainStats.js && node --check src/utils/proxyParser.js && node --check src/utils/proxyTest.js && node --check src/utils/stickyProxy.js && node --check src/utils/dynamicProxy.js && node --check src/utils/proxyGeo.js && node --check src/utils/accountJob.js && node --check src/utils/accountLiveJob.js && node --check src/utils/oauthJob.js && node --check src/utils/activateJob.js && node --check src/utils/extractHttp.js && node --check src/utils/paypalExtract.js && node --check src/utils/paypalPay.js && node --check src/utils/paypalFlow.js && node --check src/utils/paypalSession.js && node --check src/utils/paypalSignals.js && node --check src/utils/paypalProfile.js && node --check src/utils/paypalGraphql.js && node --check src/utils/smsbower.js && node --check src/utils/paymentLink.js && node --check src/utils/accountDetectHttp.js && node --check src/utils/accountDetectPoller.js && node --check src/utils/accountHousekeeping.js && node --check src/utils/accountPipeline.js && node --check src/utils/pipelineCaps.js && node --check src/utils/nvtokensPool.js && node --check src/utils/nvtokensList.js && node --check src/utils/accountRtJob.js && node --check src/utils/protocolRt/index.js && node --check src/utils/protocolRt/login.js && node --check src/utils/protocolRt/consent.js && node --check src/utils/protocolRt/sms.js && node --check src/utils/protocolRt/parse.js && node --check src/utils/protocolRt/sentinel.js && node --check src/utils/registerJob.js && node --check src/utils/accountCheck.js && node --check src/utils/accountProgress.js && node --check src/utils/accountFields.js && node --check src/utils/mailcom.js && node --check src/utils/mailcomProxy.js && node --check src/utils/mailcomSession.js && node --check src/utils/mailcomImap.js && node --check src/utils/mailcomService.js && node --check src/utils/mailcomDomains.js && node --check src/utils/suffixPick.js && node --check src/utils/suffixQuota.js && node --check src/utils/mailOtp.js && node --check src/utils/mailpit.js && node --check src/routes/mailpit.js && node --check src/utils/verificationMail.js && node --check src/utils/opLog.js && node --check src/utils/serverMetrics.js && node --check src/utils/dashboardStats.js && node --check src/utils/cfMail.js && node --check src/utils/cfMailDns.js && node --check src/utils/domainStats.js && node --check src/routes/dashboard.js && node --check src/automation/config.js && node --check src/automation/cloak.js && node --check src/automation/channels/mail.js && node --check src/automation/channels/paid-mail.js && node --check src/automation/channels/sms.js && node --check src/automation/channels/providers.js && node --check src/automation/lib/parsers.js && node --check src/automation/lib/totp.js && node --check src/automation/lib/chatgpt-oauth.js && node --check src/automation/lib/sentinel.js && node --check src/automation/lib/retry-policy.js && node --check src/automation/lib/register-performance.js && node --check src/automation/lib/register-assets.js && node --check src/automation/flows/register.js && node --check src/automation/flows/register-headless.js && node --check src/automation/flows/auth-continue.js && node --check src/automation/flows/account-security.js && node --check src/automation/flows/existing-account-login.js && node --check src/automation/flows/mailbox.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.0",
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^12.2.0",
+    "cloakbrowser": "0.5.7",
+    "compression": "^1.8.1",
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.0.1",
+    "helmet": "^8.1.0",
+    "imapflow": "^1.7.1",
+    "impit": "^0.14.3",
+    "jsdom": "^24.1.3",
+    "jsonwebtoken": "^9.0.2",
+    "mmdb-lib": "^3.0.2",
+    "playwright-core": "1.62.0",
+    "puppeteer-core": "25.3.0",
+    "qrcode": "^1.5.4",
+    "socks-proxy-agent": "^10.1.0",
+    "undici": "^8.10.0",
+    "xlsx": "^0.18.5"
+  }
+}

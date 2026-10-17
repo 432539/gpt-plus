@@ -1,0 +1,14 @@
+name = "gpt-plus-mail"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+account_id = "1a89774a952ac846ada84d76906357f2"
+
+[vars]
+DOMAINS = "057o.com,1kqj.com,5zkj.com,7nsc.com,7twg.com,953o.com,97tn.com,ntw8.com,rha8.com,wi26.com"
+WORKER_NAME = "gpt-plus-mail"
+CF_ACCOUNT_ID = "1a89774a952ac846ada84d76906357f2"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gpt-plus-mail"
+database_id = "eb1bfa31-2c94-4aac-9ce8-6fddd6c1facd"

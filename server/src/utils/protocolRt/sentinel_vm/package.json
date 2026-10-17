@@ -1,0 +1,10 @@
+{
+  "name": "pp3-sentinel-vm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Headless Sentinel SDK bridge: derives openai-sentinel-token (t) and openai-sentinel-so-token (so) by running the real SDK in jsdom.",
+  "main": "gen_token.cjs",
+  "dependencies": {
+    "jsdom": "^24.1.0"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "sourcePayPalUpdateNoTotal": {
+    "comment": "Sanitized from payment-link-source-sanitized checkout/update 200 body. Source accepts this and confirms 0 later at Stripe init / checkout page.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open"
+      }
+    }
+  },
+  "snapshotZeroGbp": {
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_snapshot": {
+        "currency": "GBP",
+        "total": {
+          "total": {
+            "minorUnitsAmount": 0,
+            "currency": "GBP"
+          },
+          "discount": {
+            "amount": 2300
+          }
+        }
+      }
+    }
+  },
+  "nestedSessionZeroGbp": {
+    "httpStatus": 200,
+    "body": {
+      "checkout_session": {
+        "checkout_state": {
+          "total": {
+            "total": {
+              "amount": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "lineItemsZeroGbp": {
+    "httpStatus": 200,
+    "body": {
+      "lineItems": [
+        {
+          "total": { "amount": 0 },
+          "unitAmount": { "amount": 0 }
+        }
+      ]
+    }
+  },
+  "wrappedDataZeroGbp": {
+    "httpStatus": 200,
+    "body": {
+      "data": {
+        "total": {
+          "taxInclusiveAmount": { "amount": 0 }
+        }
+      }
+    }
+  },
+  "nonzeroShouldReject": {
+    "httpStatus": 200,
+    "body": {
+      "total": {
+        "total": { "amount": 2300 }
+      }
+    }
+  },
+  "phpAmountTotalZeroCatalog110000": {
+    "comment": "Mode8 GCash success shape: payable amount_total=0, catalog checkout_state.total.total is Plus list price ₱1100.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 0,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "amount": 110000, "currency": "PHP" }
+          }
+        }
+      }
+    }
+  },
+  "phpLineItems98214AmountTotalZero": {
+    "comment": "Production-shaped GCash update: catalog/lineItems still show ₱982.14, payable amount_total is 0.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "lineItems": [
+        {
+          "total": { "amount": 98214, "currency": "PHP" },
+          "unitAmount": { "amount": 98214, "currency": "PHP" }
+        }
+      ],
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 0,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "amount": 98214, "currency": "PHP" }
+          }
+        }
+      }
+    }
+  },
+  "phpCheckoutStateTotalZeroNoAmountTotal": {
+    "comment": "Live GCash update after plus-1-month-free: checkout_state.total.total is 0, amount_total absent, lineItems still catalog 98214.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "minorUnitsAmount": 0, "amount": "₱0.00" },
+            "discount": { "minorUnitsAmount": 98214, "amount": "₱982.14" }
+          },
+          "lineItems": [
+            {
+              "total": { "minorUnitsAmount": 98214, "amount": "₱982.14" },
+              "unitAmount": { "minorUnitsAmount": 98214, "amount": "₱982.14" }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "phpLineItems98214NoAmountTotal": {
+    "comment": "Failed production shape: only lineItems 98214, missing checkout_session.amount_total and checkout_state.total.total. Must not be treated as payable.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "currency": "php"
+      },
+      "lineItems": [
+        {
+          "total": { "amount": 98214, "currency": "PHP" },
+          "unitAmount": { "amount": 98214, "currency": "PHP" }
+        }
+      ]
+    }
+  },
+  "phpAmountTotal110000": {
+    "comment": "Truly payable ₱1100 after update — not a free trial.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 110000,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "amount": 110000, "currency": "PHP" }
+          }
+        }
+      }
+    }
+  },
+  "phpLiveTaxesCatalog110000DueZero": {
+    "comment": "Live-shaped GCash taxes: list price amount_total and checkout_state.total.total stay ₱1100, payable due is 0. Other platforms show 本次支付 0 元.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 110000,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "amount": 110000, "currency": "PHP" },
+            "due": { "amount": 0, "currency": "PHP" },
+            "taxInclusive": { "minorUnitsAmount": 0, "amount": "₱0.00" },
+            "discount": { "amount": 110000, "currency": "PHP" }
+          }
+        }
+      }
+    }
+  },
+  "phpLiveTaxesAmountTotal110000TotalZero": {
+    "comment": "Live-shaped if taxes copies list price into amount_total but checkout_state.total.total is already the 0 payable.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 110000,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "minorUnitsAmount": 0, "amount": "₱0.00" },
+            "taxInclusive": { "minorUnitsAmount": 0, "amount": "₱0.00" }
+          }
+        }
+      }
+    }
+  },
+  "phpLiveTaxesDue110000": {
+    "comment": "Truly payable ₱1100: due is 110000. taxInclusive=0 must not pass.",
+    "httpStatus": 200,
+    "body": {
+      "success": true,
+      "checkout_session": {
+        "status": "open",
+        "amount_total": 110000,
+        "currency": "php",
+        "checkout_state": {
+          "total": {
+            "total": { "amount": 110000, "currency": "PHP" },
+            "due": { "amount": 110000, "currency": "PHP" },
+            "taxInclusive": { "minorUnitsAmount": 0, "amount": "₱0.00" }
+          }
+        }
+      }
+    }
+  }
+}

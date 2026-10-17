@@ -1,0 +1,80 @@
+{
+  "approve_link": "https://www.paypal.com/agreements/approve?ba_token=BA-UNITTESTTOKEN&country.x=GB&locale.x=en_GB",
+  "guest_html": "<html><body>Continue as guest <a href=\"https://www.paypal.com/checkoutnow?token=EC-1SANITIZEDTOKEN\">checkout</a></body></html>",
+  "signup_html": "<html><script>window.__INITIAL_DATA__ = {\"checkoutSession\":{\"checkoutSessionType\":\"BILLING_WITHOUT_PURCHASE\",\"contentHash\":\"hash-test\"},\"signupTerms\":{\"contentIdentifier\":\"signupTerms-gb-en\"}};</script></html>",
+  "initiate_2fa_pending": {
+    "data": {
+      "initiateRiskBasedTwoFactorPhoneConfirmation": {
+        "authId": "auth-fixture",
+        "challengeId": "challenge-fixture",
+        "state": "PENDING"
+      }
+    }
+  },
+  "confirm_2fa": {
+    "data": {
+      "confirmRiskBasedTwoFactorPhoneConfirmation": {
+        "state": "CONFIRMED"
+      }
+    }
+  },
+  "signup_success": {
+    "data": {
+      "onboardAccount": {
+        "buyer": {
+          "userId": "buyer-fixture",
+          "auth": { "accessToken": "euat-fixture-token" }
+        }
+      }
+    }
+  },
+  "signup_card_rejected_with_euat": {
+    "errors": [
+      {
+        "message": "R_ERROR",
+        "checkpoints": ["addCard"],
+        "contingency": true,
+        "path": ["onboardAccount"],
+        "errorData": {
+          "0": { "field": "cardNumber", "code": "CARD_GENERIC_ERROR" },
+          "accessToken": "euat-partial-after-addcard-failure"
+        }
+      }
+    ]
+  },
+  "authorize_success": {
+    "data": {
+      "billing": {
+        "authorize": {
+          "billingAgreementToken": "BA-UNITTESTTOKEN",
+          "paymentAction": "AUTHORIZE",
+          "buyer": { "userId": "buyer-fixture" },
+          "returnURL": {
+            "href": "https://pm-redirects.stripe.com/redirect?redirect_status=succeeded&success_return_url=https%3A%2F%2Fchatgpt.com%2Fcheckout%2Fverify%3Fsession_id%3Dcs_test"
+          }
+        }
+      }
+    }
+  },
+  "accounts_check_plus": {
+    "account_ordering": ["acc-1"],
+    "accounts": {
+      "acc-1": {
+        "account": { "plan_type": "plus" },
+        "entitlement": {
+          "subscription_plan": "chatgptplusplan",
+          "trial": { "expires_at": "2026-09-19T12:00:00+00:00" }
+        }
+      }
+    }
+  },
+  "accounts_check_free": {
+    "account_ordering": ["acc-1"],
+    "accounts": {
+      "acc-1": {
+        "account": { "plan_type": "free" },
+        "entitlement": { "subscription_plan": "chatgptfreeplan" }
+      }
+    }
+  }
+}
